@@ -15,8 +15,8 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'npm' => 'required|string',
             'nama' => 'required|string',
-            'nim' => 'required|string',
             'jurusan' => 'required|string',
         ]);
 

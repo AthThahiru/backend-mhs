@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Mahasiswa;
+use Illuminate\Http\Request;
+
+class MahasiswaController extends Controller
+{
+    public function index()
+    {
+        return response()->json(Mahasiswa::all(), 200);
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|string',
+            'nim' => 'required|string',
+            'jurusan' => 'required|string',
+        ]);
+
+        $mhs = Mahasiswa::create($validated);
+
+        return response()->json([
+            'message' => 'Data mahasiswa berhasil ditambahkan',
+            'data' => $mhs
+        ], 201);
+    }
+}

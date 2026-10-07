@@ -9,7 +9,6 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    // Pastikan npm, nama, dan prodi dimasukkan ke dalam $fillable
     protected $fillable = [
         'npm',
         'nama',
